@@ -1,0 +1,25 @@
+package pt.frontier;
+
+public abstract class Game implements Runnable
+{
+	private static  MySurface mySurface;
+	int width;
+	int height;
+	
+	Game(int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+	}
+	
+	public void init()
+	{
+		new Thread(this).start();
+	}
+
+	public MySurface getMySurface() 
+	{
+		if(mySurface == null) mySurface = new MySurface(width, height);
+		return mySurface;
+	}
+}

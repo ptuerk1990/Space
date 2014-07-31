@@ -1,0 +1,25 @@
+package frontier.pc;
+
+public class GameTest implements Runnable
+{
+	private static  MySurface mySurface;
+	int width;
+	int height;
+	
+	protected GameTest(int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+	}
+	
+	public void init()
+	{
+		new Thread(this).start();
+	}
+
+	public MySurface getMySurface() 
+	{
+		if(mySurface == null) mySurface = new MySurface(width, height);
+		return mySurface;
+	}
+}

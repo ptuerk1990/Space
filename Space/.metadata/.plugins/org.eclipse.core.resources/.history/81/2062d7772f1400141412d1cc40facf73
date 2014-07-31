@@ -1,0 +1,18 @@
+
+public abstract class Game implements Runnable
+{
+	private MySurface mySurface;
+	
+	Game(int width, int height)
+	{
+		mySurface = new MySurface(width, height);
+	}
+	
+	public void init()
+	{
+		new Thread(this).start();
+	}
+
+	public MySurface getMySurface() {return mySurface;}
+	public void setMySurface(MySurface mySurface) {this.mySurface = mySurface;}
+}

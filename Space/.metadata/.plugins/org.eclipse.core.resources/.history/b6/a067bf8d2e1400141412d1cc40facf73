@@ -1,0 +1,10 @@
+
+public abstract class Game 
+{
+	MySurface mySurface;
+	
+	Game(int width, int height)
+	{
+		mySurface = new MySurface(width, height);
+	}
+}

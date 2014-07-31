@@ -1,0 +1,28 @@
+import pt.frontier.Game;
+
+public class Main extends Game
+{
+	
+	boolean running = true;
+	
+	public static void main(String[] args) 
+	{
+		new Main(800, 600);
+	}
+	
+	public Main(int width, int height) 
+	{
+		super(width, height);
+		init();
+	}
+
+	@Override
+	public void run() 
+	{		
+		while(running)
+		{
+			if(!getMySurface().update()) running = false;
+			getMySurface().draw();
+		}
+	}
+}

@@ -1,0 +1,33 @@
+package frontier.pc;
+
+import org.lwjgl.opengl.GL11;
+
+public class GameObject 
+{
+	float x;
+	float y;
+	float z;
+	float dx;
+	float dy;
+	float dz;
+	
+	float roll;
+	float pitch;
+	float yaw;
+	
+	public void draw()
+	{
+		GL11.glTranslatef(x,  y ,  z);
+		GL11.glRotatef(pitch, 1, 0, 0);
+		GL11.glRotatef(yaw, 0, 1, 0);
+		GL11.glRotatef(roll, 0, 0, 1);
+	}
+	
+	public void endDraw()
+	{
+		GL11.glRotatef(-roll, 0, 0, 1);
+		GL11.glRotatef(-yaw, 0, 1, 0);
+		GL11.glRotatef(-pitch, 1, 0, 0);
+		GL11.glTranslatef(-x,  -y ,  -z);
+	}
+}
